@@ -59,7 +59,7 @@ def __apikey__():
                 resp_split = (req["expires"].split("T")[1].split(":"))
                 print(f"{H}[{P}*{H}]{P} Expired :{K} {resp[2]}/{resp[1]}/{resp[0]} {resp_split[0]}.{resp_split[1]}")
                 time.sleep(3)
-                __menu__()
+                __login__()
     except (KeyError):
         exit(f"{P}[{M}!{P}]{M} Apikey Invalid")
     except Exception as err:
