@@ -159,7 +159,7 @@ def __menu__ ():
         }).json ()['user']
         print(f"{B}[{P}*{B}]{P} Welcome : {req['full_name']}")
 
-            
+      try :      
 
         __login__ ()
     print(f"""
