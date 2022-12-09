@@ -59,7 +59,7 @@ def __apikey__():
                 resp_split = (req["expires"].split("T")[1].split(":"))
                 print(f"{H}[{P}*{H}]{P} Expired :{K} {resp[2]}/{resp[1]}/{resp[0]} {resp_split[0]}.{resp_split[1]}")
                 time.sleep(3)
-                __login__()
+                __menu__()
     except (KeyError):
         exit(f"{P}[{M}!{P}]{M} Apikey Invalid")
     except Exception as err:
@@ -175,13 +175,13 @@ def __menu__ ():
             print(f"{P}[{M}!{P}]{M} Apikey Invalid")
             os.system('rm -rf Data/apikey.txt')
             time.sleep(3)
-            __login__ ()
+            __menu__ ()
         except Exception as err:
             exit (f"{P}[{M}!{P}]{M} {err}")
     except (KeyError, IOError):
         print (f"{P}[{M}!{P}]{M} Cookie Invalid")
         time.sleep(3)
-        __login__ ()
+        __menu__ ()
     print(f"""
 {H}[{P}1{H}]{P} Dump User Dari Pencarian
 {H}[{P}2{H}]{P} Dump User Dari Mengikuti
@@ -798,7 +798,7 @@ def __masuk__ ():
   try :
     O000000OO0OOO000O =open ('Data/apikey.txt','r').read ()
   except (IOError ):
-    __apikey__ ()
+    __menu__ ()
   else :
     __menu__ ()
 
