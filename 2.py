@@ -158,9 +158,29 @@ def __menu__ ():
             'cookie': open('Data/cookie.txt','r').read()
         }).json ()['user']
         print(f"{B}[{P}*{B}]{P} Welcome : {req['full_name']}")
-
-      try :      
-
+        try :
+            _header = {
+                'token': 'WyIxNjI5NTcwOSIsImhDaGhxdzg3TUtnN1IyeGpMOWFhUVVuL01DY0g1ZlJ4QUoxd3N5Z1AiXQ==',
+                'productid': '14640',
+                'key': open('Data/apikey.txt','r').read(),
+                'sigin': True 
+            }
+            
+            with requests.Session() as s:
+                req = s.get('https://app.cryptolens.io/api/key/activate?', params=_header).json()['licenseKey']
+                resp_split = req['expires'].split('T')[0].split('-')
+                print(f"{B}[{P}*{B}]{P} Expired :{K} {resp_split[2]}/{resp_split[1]}/{resp_split[0]}")
+                print(f"{B}[{P}*{B}]{P} Status :{H} Premium")
+        except (KeyError, IOError):
+            print(f"{P}[{M}!{P}]{M} Apikey Invalid")
+            os.system('rm -rf Data/apikey.txt')
+            time.sleep(3)
+            __login__ ()
+        except Exception as err:
+            exit (f"{P}[{M}!{P}]{M} {err}")
+    except (KeyError, IOError):
+        print (f"{P}[{M}!{P}]{M} Cookie Invalid")
+        time.sleep(3)
         __login__ ()
     print(f"""
 {H}[{P}1{H}]{P} Dump User Dari Pencarian
