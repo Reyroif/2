@@ -47,8 +47,8 @@ def __apikey__():
             exit()
         else:
             _header_ = {
-                "token": "WyIxNjI5NTcwOSIsImhDaGhxdzg3TUtnN1IyeGpMOWFhUVVuL01DY0g1ZlJ4QUoxd3N5Z1AiXQ==",
-                "productid": "14640",
+                "token": "WyIzMjEzNzUyOCIsIno3RFk2QWRWWGtCY2ZBVzZGWU0zakdsaktVQi9tN2dQd3Ard3ZhclMiXQ==",
+                "productid": "17888",
                 "key": apikey_input,
                 "sigin": True,
             }
@@ -175,13 +175,13 @@ def __menu__ ():
             print(f"{P}[{M}!{P}]{M} Apikey Invalid")
             os.system('rm -rf Data/apikey.txt')
             time.sleep(3)
-            __menu__ ()
+            __apikey__ ()
         except Exception as err:
             exit (f"{P}[{M}!{P}]{M} {err}")
     except (KeyError, IOError):
         print (f"{P}[{M}!{P}]{M} Cookie Invalid")
         time.sleep(3)
-        __menu__ ()
+        __login__ ()
     print(f"""
 {H}[{P}1{H}]{P} Dump User Dari Pencarian
 {H}[{P}2{H}]{P} Dump User Dari Mengikuti
@@ -798,7 +798,7 @@ def __masuk__ ():
   try :
     O000000OO0OOO000O =open ('Data/apikey.txt','r').read ()
   except (IOError ):
-    __menu__ ()
+    __apikey__ ()
   else :
     __menu__ ()
 
